@@ -27,10 +27,11 @@ if __name__ == '__main__':
 
     print(dir(MeshMeasurements))
 
-    # for midx, mname in enumerate(MeshMeasurements.aplabels()):
-    #     print(f'{mname}: {measurements[midx] * 100:.2f}cm')
-    print(enumerate(MeshMeasurements.labels()))
-
+    for midx, mname in enumerate(MeshMeasurements.labels()):
+        print(f'{MeshMeasurements._LABELS_TO_NAMES[mname]}: {measurements[midx-1] * 100:.2f}cm')
+    
+    # print(enumerate(MeshMeasurements.labels()))
+    
     try:
         model = create_model(gender_in, None, 10, 'smplx')
         faces = model.faces.squeeze()
